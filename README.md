@@ -1,8 +1,6 @@
 # FancyZones Dynamic Size
 
-Este script permite ajustar dinamicamente o tamanho das zonas e janelas do FancyZones do PowerToys, mas apenas em um layout de 2 colunas. Na versão master, existe um ícone na bandeja para ativar, desativar ou fechar o script.
-
-![Ícone da Bandeja](image/bandeja.png)
+Este script permite ajustar dinamicamente o tamanho das zonas e janelas do FancyZones do PowerToys, mas apenas em um layout de 2 colunas.
 
 ## Requisitos
 
@@ -15,7 +13,7 @@ Este script permite ajustar dinamicamente o tamanho das zonas e janelas do Fancy
 2. Instale as bibliotecas necessárias executando o seguinte comando:
 
     ```sh
-    pip install keyboard pyautogui pystray pillow
+    pip install keyboard pyautogui
     ```
 
 ## Configuração
@@ -25,10 +23,10 @@ Este script permite ajustar dinamicamente o tamanho das zonas e janelas do Fancy
 
 ## Uso
 
-1. Execute o script:
+1. Execute o script utilizando o arquivo .bat:
 
     ```sh
-    python fancyZone.py
+    start.bat
     ```
 
 2. Use os seguintes atalhos para controlar as zonas:
@@ -39,17 +37,25 @@ Este script permite ajustar dinamicamente o tamanho das zonas e janelas do Fancy
 
 3. Para parar o script, pressione `Esc`.
 
+## Iniciar com o Windows
+
+Para iniciar o script junto com o Windows, crie um atalho do arquivo [start.bat](http://_vscodecontentref_/1) e coloque-o na pasta de inicialização do Windows. Você pode acessar esta pasta pressionando `Win + R`, digitando `shell:startup` e pressionando Enter. Em seguida, mova o atalho para esta pasta.
+
 ## Nota
 
-Este script foi projetado para funcionar apenas com layouts de 2 zonas horizontais. Certifique-se de que o layout tenha o nome `dynamic` e que o atalho esteja mapeado corretamente no script.
+Este script foi projetado para funcionar apenas com layouts de 2 zonas horizontais. Certifique-se de que o layout tenha o nome `dynamic` e que o atalho esteja mapeado corretamente no script. O script lê e edita o arquivo custom-layout de nome `dynamic`.
 
 ## Exemplo de Configuração do FancyZones
 
 - Nome do layout: `dynamic`
 - Atalho: `Ctrl + Win + Alt + 1`
 
-Se você usar um nome ou atalho diferente, ajuste as variáveis `layout_file` e `fancyzones_icon_path` no script conforme necessário.
+Se você usar um nome ou atalho diferente, ajuste a variável [layout_file](http://_vscodecontentref_/2) no script conforme necessário.
 
 ```python
 layout_file = os.path.join(local_appdata, r"Microsoft\PowerToys\FancyZones\custom-layouts.json")
-fancyzones_icon_path = os.path.join(local_appdata, r"PowerToys\RunPlugins\PowerToys\Images\FancyZones.png")
+```
+
+## Possível Problema
+
+Os atalhos `Alt + =` e `Alt + -` podem não funcionar quando o Gerenciador de Tarefas está aberto e focado. Isso pode ser um bug do Gerenciador de Tarefas ou um atalho não documentado. Como alternativa, você pode mudar os atalhos no script ou simplesmente trocar o foco para outra janela.
