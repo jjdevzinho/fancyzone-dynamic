@@ -73,8 +73,8 @@ def on_exit(icon, item):
 def run_script():
     global running
     running = True
-    keyboard.add_hotkey('alt+=', lambda: modify_zone(5), suppress=True)
-    keyboard.add_hotkey('alt+-', lambda: modify_zone(-5), suppress=True)
+    keyboard.add_hotkey('alt+=', lambda: modify_zone(2.5), suppress=True)
+    keyboard.add_hotkey('alt+-', lambda: modify_zone(-2.5), suppress=True)
     keyboard.add_hotkey('alt+x', invert_zones, suppress=True)
     while running:
         keyboard.wait('esc')
