@@ -48,8 +48,8 @@ def invert_zones():
         modify_layout([col1, col2])
 
 def run_script():
-    keyboard.add_hotkey('alt+=', lambda: modify_zone(5), suppress=True)
-    keyboard.add_hotkey('alt+-', lambda: modify_zone(-5), suppress=True)
+    keyboard.add_hotkey('alt+=', lambda: modify_zone(2.5), suppress=True)
+    keyboard.add_hotkey('alt+-', lambda: modify_zone(-2.5), suppress=True)
     keyboard.add_hotkey('alt+x', invert_zones, suppress=True)
     keyboard.wait('esc')
 
