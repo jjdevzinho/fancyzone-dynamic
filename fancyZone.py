@@ -17,7 +17,7 @@ def save_json(file_path, data):
 
 def modify_layout(columns_percentage):
     data = load_json(layout_file)
-    layout = data["custom-layouts"][0]  # Acessa o primeiro (e único) layout
+    layout = data["custom-layouts"][0]
     if layout["name"] == "dynamic":
         layout["info"]["columns-percentage"] = columns_percentage
         save_json(layout_file, data)
@@ -25,7 +25,7 @@ def modify_layout(columns_percentage):
 
 def modify_zone(percent_change):
     data = load_json(layout_file)
-    layout = data["custom-layouts"][0]  # Acessa o primeiro (e único) layout
+    layout = data["custom-layouts"][0]
     if layout["name"] == "dynamic":
         columns_percentage = layout["info"]["columns-percentage"]
         
@@ -39,7 +39,7 @@ def modify_zone(percent_change):
 
 def invert_zones():
     data = load_json(layout_file)
-    layout = data["custom-layouts"][0]  # Acessa o primeiro (e único) layout
+    layout = data["custom-layouts"][0]
     if layout["name"] == "dynamic":
         columns_percentage = layout["info"]["columns-percentage"]
         
@@ -48,8 +48,8 @@ def invert_zones():
         modify_layout([col1, col2])
 
 def run_script():
-    keyboard.add_hotkey('alt+=', lambda: modify_zone(2.5), suppress=True)
-    keyboard.add_hotkey('alt+-', lambda: modify_zone(-2.5), suppress=True)
+    keyboard.add_hotkey('alt+=', lambda: modify_zone(2), suppress=True)
+    keyboard.add_hotkey('alt+-', lambda: modify_zone(-2), suppress=True)
     keyboard.add_hotkey('alt+x', invert_zones, suppress=True)
     keyboard.wait('esc')
 
